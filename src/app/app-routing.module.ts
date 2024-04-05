@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
+import { CanvasDrawingComponent } from './canvas-drawing/canvas-drawing.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: '', component: CanvasDrawingComponent },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

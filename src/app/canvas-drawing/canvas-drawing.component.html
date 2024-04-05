@@ -1,0 +1,37 @@
+<mat-toolbar>
+  <span class="toolbar-title" style="color: white;">
+    CANVAS
+  </span>
+  <div class="tools">
+    <button class="custom-button" (click)="drawCircle()">Circle</button>
+    <button class="custom-button" (click)="drawRectangle()">Rectangle</button>
+    <button class="custom-button" (click)="drawTriangle()">Triangle</button>
+    <button class="custom-button" (click)="deleteSelectedShape()">Delete Shape</button>
+  </div>
+</mat-toolbar>
+
+<div class="container">
+  <div class="canvas-wrapper">
+    <canvas #canvas id="canvas" width="800" height="450" (click)="handleCanvasClick($event)" style="border: 1px solid black; box-sizing: border-box;"></canvas>
+  </div>
+  <div class="color-options">
+    <mat-form-field appearance="fill" class="color-picker">
+      <mat-label>Fill Color</mat-label>
+      <input matInput type="color" [(ngModel)]="fillColor" (input)="onFillColorChange(fillColor)">
+    </mat-form-field>
+    <div class="action-buttons">
+      <button class="color-action-button" (click)="modifySelectedShapeFillColor(fillColor)">Apply Fill</button>
+    </div>
+    <mat-form-field appearance="fill" class="color-picker">
+      <mat-label>Stroke Color</mat-label>
+      <input matInput type="color" [(ngModel)]="strokeColor" (input)="onStrokeColorChange(strokeColor)">
+    </mat-form-field>
+    <div class="action-buttons">
+      <button class="color-action-button" (click)="modifySelectedShapeStrokeColor(strokeColor)">Apply Stroke</button>
+    </div>
+    <div class="file-import-export">
+      <button class="custom-button export-button" (click)="exportCanvas()">Export</button>
+      <input type="file" (change)="importCanvas($event)">
+    </div>
+  </div>
+</div>
